@@ -5,7 +5,7 @@ import requests
 from  threading import Timer 
 
 keys = []
-run = False
+run = True
 
 def post():
     global run
@@ -66,7 +66,7 @@ def post():
     print(apod_date + ' posted ' + apod_url + ' to r/daily_apod')
     
     if run:
-        Timer(120, post).start()
+        Timer(60, post).start()
 
 post()
 
