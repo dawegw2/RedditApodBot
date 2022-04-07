@@ -63,30 +63,10 @@ def post():
 
             break
     
+    print(apod_date + ' posted ' + apod_url + ' to r/daily_apod')
+    
     if run:
         Timer(120, post).start()
 
 post()
 
-
-### POSTING ON MULTIPLE SUBREDDITS AT ONCE
-
-'''
-subs = ['daily_apod', 'testsub14']
-
-for i in range(0, len(subs)): #loop through the different subreddits and grab the title/url of the hot posts 
-    sub = reddit.subreddit(subs[i])
-    sub.submit(title=title, url=apod_url)
-
-    # commenting the explanation of the image
-    for submission in sub.stream.submissions():
-        submission_title = submission.title.lower()
-
-        if apod_date in submission_title:
-
-            explanation = "Explanation: " + "\r\r\n" + apod_explanation
-            comment = submission.reply(explanation) # comment the explanation for the apod
-            comment.mod.distinguish(sticky=True)
-
-            break
-'''
